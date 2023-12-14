@@ -1,0 +1,20 @@
+
+<div>UserState: {{ user$ | async  | json }}</div>
+<div>UserStateJustCarreerWithMainSelector: {{ (user$ | async)?.carreer  | json }}</div>
+<div>UserStateJustUserWithMainSelector: {{ (user$ | async)?.user  | json }}</div>
+
+*************************************************************************
+
+<div>UserStateJustCarreer: {{ userJustCarreer$ | async  | json }}</div>
+<div>UserStateJustUser: {{ userJustUser$ | async  | json }}</div>
+<input type="text" (input)="onInputChange($event.target.value)"/>
+<br/>
+<form #myForm="ngForm">
+  <input type="text" name="carreer" [(ngModel)]="carreer" />
+  <button type="button" (click)="resetForm(myForm)">Reset</button>
+</form>
+<br/>
+<button (click)="login()">Login</button>
+
+<button (click)="logout()">Logout</button>
+<button (click)="changeCarreer()">Change Carreer to Doctor</button>
